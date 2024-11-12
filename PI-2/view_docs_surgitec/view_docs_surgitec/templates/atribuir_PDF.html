@@ -1,0 +1,89 @@
+
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atribuir PDF</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Atribuir PDF para Funcionário</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label for="pdf_id">Escolha o PDF</label>
+        <select name="pdf_id">
+            {% for item in arquivos %}
+                <option value="{{ item.id }}">{{ item.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Atribuir PDF</button>
+    </form>
+    
+    <br>
+    <a href="{% url 'pagina_gestor' %}" class="btn">Voltar</a>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Serviços Médicos</title>
+    <link rel="stylesheet" href="css/bemvindo.css">
+    <link rel="stylesheet" href="{% static 'css/bemvindo.css' %}">
+</head>
+
+<body>
+    <div class="phone-container">
+        <div class="top-bar">
+            <img src="imagens/surgitec-logo-branco.svg" alt="Logo Surgitec" class="logo">
+        </div>
+        
+        <div class="welcome-section">
+            <h1>Bem-vindo, Gestor!</h1>
+            <p>Bem-vindo ao sistema de gerenciamento de PDFs da Surgitec!</p>
+
+            <h2>Funcionários Cadastrados</h2>
+            <p> lista de funcionarios utilizando o django</p>
+            <!--<ul>
+                {% for funcionario in funcionarios %}
+                    <li>{{ funcionario.nome }} - {{ funcionario.funcao }}</li>
+                {% empty %}
+                    <li>Nenhum funcionário cadastrado.</li>
+                {% endfor %}
+            </ul> -->
+
+            <!-- Formulário de upload de PDF com seleção de funcionário -->
+            <div class="container">
+                <form action="{% url 'upload_pdf' %}" method="post" enctype="multipart/form-data">
+                    <!--{% csrf_token %}-->
+
+                    <label for="funcionario-select">Selecione o Funcionário:</label>
+                    <select id="funcionario-select" name="funcionario_id" required>
+                        <option value="">Escolha um funcionário</option>
+                      <!-- {% for funcionario in funcionarios %} -->
+                            <option value="{{ funcionario.id }}">{{ funcionario.nome }}</option>
+                        <!--{% endfor %} -->
+                    </select>
+
+                    <label for="pdf-upload" class="btn-upload-btn">
+                        <img src="imagens/upload.gif" alt="Gif de Sucesso" class="gif">
+                    </label>
+                    <input type="file" id="pdf-upload" name="pdf" accept="application/pdf" style="display: none;" required>
+                    <button type="submit" class="cta-button">Enviar PDF</button>
+                </form>
+            </div>
+
+            <div class="bottom-nav2">
+                <a class="btn" href="home 1.html">Voltar para a Home</a>
+            </div>
+            <div class="bottom-nav2">
+                <a href="cadastrar_funcionario.html" class="btn">Cadastrar Novo Usuário</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

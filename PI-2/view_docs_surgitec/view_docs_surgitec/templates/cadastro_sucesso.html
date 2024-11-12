@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles-copy.css">
+</head>
+    <title>Cadastro realizado com sucesso!</title>
+    <!--{% load static %}-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles-copy.css' %}">
+</head>
+<body>
+    <div class="phone-container">
+        <div class="form-box">
+            <!-- Logo (django)
+            <img src="{% static 'imagens/surgitec-logo-cor.png' %}" alt="Logo Surgitec" class="logo">-->
+            <img src="imagens/surgitec-logo-cor.png" alt="Logo Surgitec" class="logo"> 
+            <h1>Cadastro realizado com sucesso!</h1>
+            <!-- Gif de sucesso (django)
+            <img src="{% static 'imagens/icons8-crachá-verificado.gif' %}" alt="Gif de sucesso" class="gif">-->
+            <img src="imagens/icons8-crachá-verificado.gif" alt="Gif de Sucesso" class="gif">
+
+            <div class="footer-links">
+                <a href="{% url 'home' %}" class="back-btn">Voltar a Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
